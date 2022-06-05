@@ -1,5 +1,5 @@
 name: Feature request
-description: Vraag een nieuwe feature aan
+description: Een suggestie voor een nieuwe feature
 title: "[FEATURE]: "
 labels: ["enhancement", "new"]
 body:
@@ -12,7 +12,7 @@ body:
     id: contact
     attributes:
       label: Contact Details
-      description: Hoe kunnen we je contacteren op Discord als we extra informatie nodig zijn?
+      description: Hoe kunnen we je contacteren op discord als we extra informatie nodig hebben?
       placeholder: "Voorbeeld: Wesleyy#9498"
     validations:
       required: false
