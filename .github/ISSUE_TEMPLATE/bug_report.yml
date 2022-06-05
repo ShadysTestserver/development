@@ -13,7 +13,7 @@ body:
     attributes:
       label: Contact Details
       description: Hoe kunnen we je contacteren op Discord als we extra informatie nodig zijn?
-      placeholder: ex. Misstake#1337
+      placeholder: ex. Wesleyy#9498
     validations:
       required: false
   - type: textarea
@@ -67,9 +67,9 @@ body:
     id: logs
     attributes:
       label: Relevante log bestanden
-      description: Kopieër hier aub relevante logs in, dus als er errors in je console waren aub deze hierin kopiëren, zie [log bestanden](https://tedeapolis.nl/tutorials/#log-bestanden)
+      description: Kopieër hier aub relevante logs in, dus als er errors in je console waren aub deze hierin kopiëren
       placeholder: Sleep hier je logbestanden heen
   - type: markdown
     attributes:
       value: |
-        Door deze issue aan te maken ga je akkoord met onze [contributing](https://github.com/Tedeapolis/development/blob/master/CONTIBUTING.md) richtlijnen
+        Door deze issue aan te maken ga je akkoord met onze richtlijnen
