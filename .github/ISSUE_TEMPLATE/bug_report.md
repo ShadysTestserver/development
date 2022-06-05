@@ -1,38 +1,75 @@
----
-name: Bug report
-about: Meld een bug
-title: ''
-labels: ''
-assignees: ''
-
----
-
-**Describe the bug**
-A clear and concise description of what the bug is.
-
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+name: Bug Report
+description: Meld een bug
+title: "[Bug]: "
+labels: ["bug", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bedankt dat je de tijd wilt nemen om een issue aan te maken!
+        Vul de onderstaande dingen aub zo gedetailleerd mogelijk in zodat we de issue snel kunnen afhandelen.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: Hoe kunnen we je contacteren op Discord als we extra informatie nodig zijn?
+      placeholder: ex. Misstake#1337
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Wat gebeurde er?
+      description: Wat gebeurde er precies, dus welke meldingen zag je, wat zag je in je console, etc?
+      placeholder: |
+        Voorbeeld: Ik zag een notificatie met de volgende tekst: "Er ging iets mis probeer het opnieuw"
+        Hiernaast kwam er ook een error in m'n console
+    validations:
+      required: true
+  - type: textarea
+    id: what-should-happen
+    attributes:
+      label: Wat hoorde er te gebeuren?
+      description: Wat hoorde er te gebeuren, dus wat zou er normaal moeten gebeuren in plaats van het bovenstaande
+      placeholder: Vertel ons wat je verwachte
+  - type: textarea
+    id: repro
+    attributes:
+      label: "Wat veroorzaakt de bug?"
+      description: "Welke exacte stappen kunnen wij volgen om deze bug zelf na te kunnen maken?"
+      placeholder: |
+        Voorbeeld: "Doe eerst een zak op je hoofd, doe hierna een dansje en dan opeens teleport je naar narcopolis"
+    validations:
+      required: false
+  - type: dropdown
+    id: frequency
+    attributes:
+      description: "Hoevaak komt deze bug voor?"
+      label: "Frequentie van de bug"
+      options:
+        - Altijd
+        - Meerdere keren per dag
+        - 1x per dag
+        - 1x per week
+        - Sporadisch/Heel soms
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      description: "Hoog wanneer 50% of meer er last van heeft"
+      label: "Wat is de impact van deze bug?"
+      options:
+        - hoog
+        - laag
+        - geen
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevante log bestanden
+      description: Kopieër hier aub relevante logs in, dus als er errors in je console waren aub deze hierin kopiëren
+      placeholder: Sleep hier je logbestanden heen
+  - type: markdown
+    attributes:
+      value: |
+        Door deze issue aan te maken ga je akkoord met onze richtlijnen
