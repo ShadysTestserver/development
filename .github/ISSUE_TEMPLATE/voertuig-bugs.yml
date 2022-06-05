@@ -12,7 +12,7 @@ body:
     id: contact
     attributes:
       label: Contact Details
-      description: Hoe kunnen we je contacteren op Discord als we extra informatie nodig zijn?
+      description: Hoe kunnen we je contacteren op discord als we extra informatie nodig hebben?
       placeholder: "Voorbeeld: Wesleyy#9498"
     validations:
       required: false
@@ -27,14 +27,14 @@ body:
     id: model
     attributes:
       label: "Voertuig model"
-      description: "Spawnnaam van voertuig, of exacte naam in dealer"
+      description: "Spawnnaam van voertuig, of exacte naam in cardealer"
     validations:
       required: true
   - type: textarea
     id: bug-description
     attributes:
       label: "Omschrijf de bug"
-      description: "Wat ging er mis, eventueel met videobewijs, screenshots oid"
+      description: "Wat ging er mis, eventueel met videobewijs, screenshots of dergelijke"
     validations:
       required: true
   - type: textarea
