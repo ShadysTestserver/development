@@ -13,7 +13,7 @@ body:
     attributes:
       label: Contact Details
       description: Hoe kunnen we je contacteren op Discord als we extra informatie nodig zijn?
-      placeholder: "Voorbeeld: Misstake#1337"
+      placeholder: "Voorbeeld: Wesleyy#9498"
     validations:
       required: false
   - type: dropdown
@@ -35,4 +35,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        Door deze issue aan te maken ga je akkoord met onze [contributing](https://github.com/Tedeapolis/development/blob/master/CONTIBUTING.md) richtlijnen
+        Door deze issue aan te maken ga je akkoord met onze richtlijnen
