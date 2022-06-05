@@ -1,7 +1,7 @@
-name: EUP/Kleding
+name: Kleding/Gebouwen
 description: EUP/kleding gerelateerde issues
 title: "[EUP]: "
-labels: ["bug", "EUP - interiors - retextures", "new"]
+labels: ["bug", "Kleding - Gebouwen - Skins", "new"]
 body:
   - type: markdown
     attributes:
@@ -12,7 +12,7 @@ body:
     id: contact
     attributes:
       label: Contact Details
-      description: Hoe kunnen we je contacteren op Discord als we extra informatie nodig zijn?
+      description: Hoe kunnen we je contacteren op discord als we extra informatie nodig hebben?
       placeholder: "Voorbeeld: Wesleyy#9498"
     validations:
       required: false
@@ -22,16 +22,16 @@ body:
       label: Waar bevind de issue zich?
       options:
         - EUP/Kleding
-        - Interiors
-        - Andere textures
+        - Gebouwen
+        - Gebouw/kleding skins
     validations:
       required: true
   - type: textarea
     id: what-wrong
     attributes:
       label: Wat klopt er niet
-      description: Wat klopt er niet aan de textures, eventueel screenshots van wat er niet klopt.
-      placeholder: "Voorbeeld: Van een afstand is de texture geel."
+      description: Wat klopt er niet aan de skins, eventueel screenshots van wat er niet klopt.
+      placeholder: "Voorbeeld: Van een afstand is de skin uitgeladen."
   - type: markdown
     attributes:
       value: |
