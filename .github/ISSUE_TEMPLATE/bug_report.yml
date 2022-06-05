@@ -12,8 +12,8 @@ body:
     id: contact
     attributes:
       label: Contact Details
-      description: Hoe kunnen we je contacteren op Discord als we extra informatie nodig zijn?
-      placeholder: ex. Wesleyy#9498
+      description: Hoe kunnen we je contacteren op discord als we extra informatie nodig hebben?
+      placeholder: Bijv. Wesleyy#9498
     validations:
       required: false
   - type: textarea
@@ -38,7 +38,7 @@ body:
       label: "Wat veroorzaakt de bug?"
       description: "Welke exacte stappen kunnen wij volgen om deze bug zelf na te kunnen maken?"
       placeholder: |
-        Voorbeeld: "Doe eerst een zak op je hoofd, doe hierna een dansje en dan opeens teleport je naar narcopolis"
+        Voorbeeld: "Ga naar de redzone en vermoord 15 mensen, nu kan je vliegen en heb je godmode"
     validations:
       required: false
   - type: dropdown
@@ -51,7 +51,7 @@ body:
         - Meerdere keren per dag
         - 1x per dag
         - 1x per week
-        - Sporadisch/Heel soms
+        - Zeldzaam/Heel soms
     validations:
       required: true
   - type: dropdown
