@@ -17,23 +17,29 @@ Citizen.CreateThread(function()
 
 
 	isPlayerWhitelisted = refreshPlayerWhitelisted()
+	checkschietmeldingstatus()
 end)
 
 RegisterNetEvent('esx:playerloaded')
 AddEventHandler('esx:playerloaded', function(job)
 	ESX.PlayerData.job = job
-
+	checkschietmeldingstatus()
 	isPlayerWhitelisted = refreshPlayerWhitelisted()
 end)
+
 
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
-
+	checkschietmeldingstatus()
 	isPlayerWhitelisted = refreshPlayerWhitelisted()
 end)
 
-local schietmeldingstatus = false
+local schietmeldingstatus = true
+
+RegisterCommand('schietmelding', function(source)
+	TriggerEvent('sts:outlaw')
+end)
 
 RegisterNetEvent('esx_outlawalert:outlawNotify')
 AddEventHandler('esx_outlawalert:outlawNotify', function(alert)
@@ -45,6 +51,21 @@ AddEventHandler('esx_outlawalert:outlawNotify', function(alert)
 end)
 
 
+RegisterCommand('testschietmelding', function(source)
+	if schietmeldingstatus == true then
+		exports['esx_rpchat']:printToChat("Schietmelding", "^2aan")
+	elseif schietmeldingstatus == false then
+		exports['esx_rpchat']:printToChat("Schietmelding", "^1uit")
+	end
+end)
+
+function checkschietmeldingstatus()
+	local data = GetResourceKvpString("schietmeldingstatus")
+	if data then
+		schietmeldingstatus = json.decode(data)
+	end
+end
+
 RegisterNetEvent('sts:outlaw')
 AddEventHandler('sts:outlaw', function(xPlayer)
 	if schietmeldingstatus == false then
@@ -54,6 +75,7 @@ AddEventHandler('sts:outlaw', function(xPlayer)
 		schietmeldingstatus = false
 		exports['esx_rpchat']:printToChat("Schietmelding", "Schietmeldingen staan nu ^1uit")
 	end
+	SetResourceKvp("schietmeldingstatus", json.encode(false))
 end)
 
 
@@ -99,6 +121,7 @@ end
 
 RegisterNetEvent('esx_outlawalert:gunshotInProgress')
 AddEventHandler('esx_outlawalert:gunshotInProgress', function(targetCoords)
+	print("")
 	if isPlayerWhitelisted and Config.GunshotAlert and schietmeldingstatus == true then
 		local alpha = 250
 		local gunshotBlip = AddBlipForRadius(targetCoords.x, targetCoords.y, targetCoords.z, Config.BlipGunRadius)
@@ -310,9 +333,8 @@ Citizen.CreateThread(function()
 
 			if IsPedShooting(playerPed) and not IsPedCurrentWeaponSilenced(playerPed) and Config.GunshotAlert then
 
-				Citizen.Wait(3000)
-
-				if (isPlayerWhitelisted and Config.ShowCopsMisbehave) or not isPlayerWhitelisted then
+				--if (isPlayerWhitelisted and Config.ShowCopsMisbehave) or not isPlayerWhitelisted then
+				if isPlayerWhitelisted or not isPlayerWhitelisted then
 					local randNum = math.random(0, 100)
 					local Num = 50
 					--[[if HasPedGotWeaponComponent(GetPlayerPed(-1), GetSelectedPedWeapon(PlayerPedId()), GetHashKey('component_at_pi_supp_02')) then
@@ -326,6 +348,7 @@ Citizen.CreateThread(function()
 						if randNum > Num then
 							if GetGameTimer() - lastAlert > 30000 then
 								lastAlert = GetGameTimer()
+								print('test1')
 					
 								DecorSetInt(playerPed, 'isOutlaw', 2)
 
@@ -340,23 +363,31 @@ Citizen.CreateThread(function()
 								if weapontext == nil then
 									weapontext = 'een onbekend'
 								end
-
-								TriggerServerEvent('esx_outlawalert:gunshotInProgress', {
+								coords = {
 									x = ESX.Math.Round(playerCoords.x, 1),
 									y = ESX.Math.Round(playerCoords.y, 1),
 									z = ESX.Math.Round(playerCoords.z, 1)
-								}, streetName, weapontext)
+								}
+								Wait(10000)
+								local playerCoords2 = GetEntityCoords(playerPed)
+								finalcoords = {
+									x = ESX.Math.Round(playerCoords2.x, 1),
+									y = ESX.Math.Round(playerCoords2.y, 1),
+									z = ESX.Math.Round(playerCoords2.z, 1)
+								}
+								print('test2')
+								TriggerServerEvent('esx_outlawalert:gunshotInProgress', coords, streetName, weapontext, finalcoords)
 							end
 						end
 					else
 						TriggerServerEvent('registerShot:island')
 					end
-					Citizen.Wait(1000)
+					Citizen.Wait(0)
 				end
 			end
 
 		else
-			Wait(1000)
+			Citizen.Wait(1000)
 		end
 	end
 end)
