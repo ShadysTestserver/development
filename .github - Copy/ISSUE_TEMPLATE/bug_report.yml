@@ -1,0 +1,75 @@
+name: Bug Report
+description: Meld een bug
+title: "[Bug]: "
+labels: ["bug", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bedankt dat je de tijd wilt nemen om een issue aan te maken!
+        Vul de onderstaande dingen aub zo gedetailleerd mogelijk in zodat we de issue snel kunnen afhandelen.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: Hoe kunnen we je contacteren op discord als we extra informatie nodig hebben?
+      placeholder: Bijv. Wesleyy#9498
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Wat gebeurde er?
+      description: Wat gebeurde er precies, dus welke meldingen zag je, wat zag je in je console, etc?
+      placeholder: |
+        Voorbeeld: Ik zag een notificatie met de volgende tekst: "Er ging iets mis probeer het opnieuw"
+        Hiernaast kwam er ook een error in m'n console
+    validations:
+      required: true
+  - type: textarea
+    id: what-should-happen
+    attributes:
+      label: Wat hoorde er te gebeuren?
+      description: Wat hoorde er te gebeuren, dus wat zou er normaal moeten gebeuren in plaats van het bovenstaande
+      placeholder: Vertel ons wat je verwachte
+  - type: textarea
+    id: repro
+    attributes:
+      label: "Wat veroorzaakt de bug?"
+      description: "Welke exacte stappen kunnen wij volgen om deze bug zelf na te kunnen maken?"
+      placeholder: |
+        Voorbeeld: "Ga naar de redzone en vermoord 15 mensen, nu kan je vliegen en heb je godmode"
+    validations:
+      required: false
+  - type: dropdown
+    id: frequency
+    attributes:
+      description: "Hoevaak komt deze bug voor?"
+      label: "Frequentie van de bug"
+      options:
+        - Altijd
+        - Meerdere keren per dag
+        - 1x per dag
+        - 1x per week
+        - Zeldzaam/Heel soms
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      description: "Hoog wanneer 50% of meer er last van heeft"
+      label: "Wat is de impact van deze bug?"
+      options:
+        - hoog
+        - laag
+        - geen
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevante log bestanden
+      description: Kopieër hier aub relevante logs in, dus als er errors in je console waren aub deze hierin kopiëren
+      placeholder: Sleep hier je logbestanden heen
+  - type: markdown
+    attributes:
+      value: |
+        Door deze issue aan te maken ga je akkoord met onze richtlijnen
